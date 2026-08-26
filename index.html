@@ -1,0 +1,783 @@
+Ese problema de pantalla en blanco ocurre porque los enlaces del menú intentan abrir una pestaña nueva dentro de Google Sites (`googleusercontent.com`), y los servidores de Google bloquean la carga.
+
+Para solucionarlo de raíz, el menú superior se configuró para que se desplace hacia abajo dentro de la misma pantalla y todos los botones externos abran en pestañas limpias (`target="_top"`).
+
+Copia este código corregido y reemplázalo en tu bloque:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría Integral Sostenible | SG-SST y Ambiental</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #0f514c;
+            --primary-light: #ccfbf1;
+            --dark: #0f172a;
+            --text: #334155;
+            --light-bg: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --whatsapp: #25d366;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white) !important;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-light);
+            color: var(--primary) !important;
+        }
+
+        .btn-secondary:hover {
+            background-color: #bbf7d0;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white) !important;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1eb956;
+            transform: translateY(-2px);
+        }
+
+        /* HEADER & NAVEGACIÓN */
+        header {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            border-bottom: 2px solid var(--border);
+            z-index: 1000;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo-svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-link-btn {
+            background: transparent;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-link-btn:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 70px 0 60px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .hero-card li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* SECCIONES */
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* SERVICIOS / PORTAFOLIO */
+        .services {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px 22px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+            background: var(--white);
+        }
+
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #64748b;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-card li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* CLASIFICADOR ESTÁNDARES MÍNIMOS */
+        .assessment {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: var(--white);
+        }
+
+        .assessment h2, .assessment p {
+            color: var(--white);
+        }
+
+        .assessment-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius);
+            padding: 35px;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            background-color: var(--white);
+            color: var(--dark);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(15, 118, 110, 0.25);
+            border: 1px solid var(--primary);
+            display: none;
+        }
+
+        .result-box.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* POR QUÉ ELEGIRNOS */
+        .why-us {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .why-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+        }
+
+        .why-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .why-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .why-text p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* CONTACTO */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius);
+            padding: 45px 25px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .contact-box h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 25px 0 35px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* FOOTER & BOTÓN WHATSAPP */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.85rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp);
+            color: var(--white) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+            .contact-details { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo-box" onclick="scrollToSection('inicio')">
+                <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" stroke="#000000" stroke-width="6" fill="none"/>
+                    <polygon points="50,14 82,32 82,68 50,86 18,68 18,32" stroke="#000000" stroke-width="3" fill="none"/>
+                    <circle cx="50" cy="40" r="12" fill="#71717a"/>
+                    <path d="M 36 38 C 36 28, 64 28, 64 38 Z" fill="#71717a"/>
+                    <rect x="33" y="37" width="34" height="4" rx="2" fill="#71717a"/>
+                    <path d="M 32 68 C 32 54, 68 54, 68 68 Z" fill="#71717a"/>
+                </svg>
+                <div class="logo-text">
+                    Consultoría
+                    <span>Integral Sostenible</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <button type="button" class="nav-link-btn" onclick="scrollToSection('servicios')">Servicios</button>
+                <button type="button" class="nav-link-btn" onclick="scrollToSection('estandares')">Estándares Mínimos</button>
+                <button type="button" class="nav-link-btn" onclick="scrollToSection('por-que-nosotros')">¿Por qué nosotros?</button>
+                <button type="button" class="nav-link-btn" onclick="scrollToSection('contacto')">Contacto</button>
+                <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización" target="_top" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> +57 310 8669393
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- INICIO / HERO -->
+    <section class="hero" id="inicio">
+        <div class="container hero-grid">
+            <div>
+                <span class="section-subtitle">Asesoría Profesional y Cumplimiento Legal</span>
+                <h1>Consultoría Integral en <span>SG-SST</span> y <span>Gestión Ambiental</span></h1>
+                <p>Protegemos a tu equipo de trabajo, aseguramos la sostenibilidad de tus procesos y garantizamos el cumplimiento normativo para evitar sanciones y multas.</p>
+                <div class="hero-btns">
+                    <button type="button" class="btn btn-primary" onclick="scrollToSection('estandares')">
+                        <i class="fa-solid fa-calculator"></i> Clasificar mi Empresa
+                    </button>
+                    <a href="https://wa.me/573108669393?text=Hola,%20deseo%20asesoría" target="_top" class="btn btn-secondary">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3 style="margin-bottom:15px; font-size:1.15rem;"><i class="fa-solid fa-shield-check" style="color:var(--primary);"></i> Cumplimiento Normativo</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Licencia vigente en Seguridad y Salud en el Trabajo.</li>
+                    <li><i class="fa-solid fa-check"></i> Implementación según la Resolución 0312 de 2019.</li>
+                    <li><i class="fa-solid fa-check"></i> Matrices de riesgos GTC 45 y planes de emergencia.</li>
+                    <li><i class="fa-solid fa-check"></i> Planes de Gestión Integral de Residuos (PGIR).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO Y SERVICIOS -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Portafolio Profesional</span>
+                <h2 class="section-title">Nuestros Servicios Especializados</h2>
+                <p>Soluciones técnicas y legales adaptadas exactamente a las necesidades de tu empresa</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-hard-hat"></i></div>
+                    <h3>Diseño e Implementación SG-SST</h3>
+                    <ul>
+                        <li>Diagnóstico inicial y evaluación de estándares.</li>
+                        <li>Matriz de riesgos e identificación de peligros (GTC 45).</li>
+                        <li>Políticas de SST y plan anual de trabajo.</li>
+                    </ul>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Capacitación y Comités</h3>
+                    <ul>
+                        <li>Conformación y entrenamiento de COPASST / Vigía.</li>
+                        <li>Comité de Convivencia Laboral.</li>
+                        <li>Formación de brigadas de emergencia y simulacros.</li>
+                    </ul>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>Auditorías y Seguimiento Legal</h3>
+                    <ul>
+                        <li>Auditorías internas anuales de cumplimiento.</li>
+                        <li>Investigación técnica de accidentes de trabajo.</li>
+                        <li>Acompañamiento en visitas de MinTrabajo y ARL.</li>
+                    </ul>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Gestión y Cumplimiento Ambiental</h3>
+                    <ul>
+                        <li>Plan de Gestión Integral de Residuos (PGIR).</li>
+                        <li>Trámites, permisos y licencias ambientales.</li>
+                        <li>Programas de uso eficiente de agua y energía.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTÁNDARES MÍNIMOS (RESOLUCIÓN 0312) -->
+    <section class="assessment" id="estandares">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle" style="color:#ccfbf1;">Herramienta Interactiva</span>
+                <h2 class="section-title">Clasificación de Estándares Mínimos</h2>
+                <p>Selecciona el tamaño de tu empresa y el nivel de riesgo para conocer qué estándares te exige la norma:</p>
+            </div>
+
+            <div class="assessment-box">
+                <form id="sstForm">
+                    <div class="form-group">
+                        <label for="employees"><i class="fa-solid fa-users"></i> Número de Trabajadores:</label>
+                        <select id="employees" class="form-control">
+                            <option value="1-10">1 a 10 trabajadores</option>
+                            <option value="11-50">11 a 50 trabajadores</option>
+                            <option value="50+">Más de 50 trabajadores</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="risk"><i class="fa-solid fa-triangle-exclamation"></i> Clase de Riesgo (ARL):</label>
+                        <select id="risk" class="form-control">
+                            <option value="low">Riesgo I, II o III (Bajo / Medio)</option>
+                            <option value="high">Riesgo IV o V (Alto - Obras, Minas, Industria, etc.)</option>
+                        </select>
+                    </div>
+
+                    <button type="button" onclick="evaluateSST()" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fa-solid fa-check"></i> Calcular Clasificación
+                    </button>
+                </form>
+
+                <div id="resultBox" class="result-box">
+                    <h4 id="resultTitle" style="color:var(--white); margin-bottom:8px;"></h4>
+                    <p id="resultDesc" style="font-size:0.95rem; margin-bottom:15px;"></p>
+                    <a id="resultWpp" href="#" target="_top" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Cotizar este Estándar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ NOSOTROS? -->
+    <section class="why-us" id="por-que-nosotros">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Garantía de Confianza</span>
+                <h2 class="section-title">¿Por qué elegirnos?</h2>
+                <p>Tu aliado estratégico en cumplimiento técnico y tranquilidad legal</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="why-text">
+                        <h4>Cumplimiento sin Sanciones</h4>
+                        <p>Evita requerimientos y multas económicas manteniendo al día las matrices, registros y capacitaciones requeridas por la ley.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div class="why-text">
+                        <h4>Soluciones a la Medida</h4>
+                        <p>Documentación y planes ajustados de forma real a la actividad de tu empresa, sin formatos genéricos ni sobrecostos.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+                    <div class="why-text">
+                        <h4>Profesionales con Licencia</h4>
+                        <p>Acompañamiento realizado por personal técnico calificado con Licencia vigente en Seguridad y Salud en el Trabajo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Comunícate con Nosotros</h2>
+                <p>Recibe asesoría personalizada o solicita la cotización de tu sistema hoy mismo.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="https://wa.me/573108669393" target="_top" style="color:#fff; font-weight:700;">+57 310 8669393</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:sgsst.rbn@gmail.com" target="_top" style="color:#fff; font-weight:700;">sgsst.rbn@gmail.com</a>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/573108669393?text=Hola,%20deseo%20cotizar%20servicios%20de%20SG-SST%20y%20Ambiental" target="_top" class="btn btn-whatsapp" style="font-size:1.05rem; padding: 14px 32px;">
+                    <i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; Consultoría Integral Sostenible | Bucaramanga, Santander</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20asesoría" class="whatsapp-float" target="_top" title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPT DE NAVEGACIÓN Y EVALUACIÓN -->
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function evaluateSST() {
+            const emp = document.getElementById('employees').value;
+            const risk = document.getElementById('risk').value;
+            const resultBox = document.getElementById('resultBox');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDesc = document.getElementById('resultDesc');
+            const resultWpp = document.getElementById('resultWpp');
+
+            let title = "";
+            let desc = "";
+
+            if (emp === '1-10' && risk === 'low') {
+                title = "Estándares Mínimos: 7 Ítems";
+                desc = "A tu empresa le aplica el cumplimiento básico de 7 estándares según la Resolución 0312. Diseñamos este esquema ágil y sin complicaciones.";
+            } else if ((emp === '1-10' && risk === 'high') || (emp === '11-50' && risk === 'low')) {
+                title = "Estándares Mínimos: 21 Ítems";
+                desc = "Debes cumplir con 21 estándares fundamentales: COPASST/Vigía, matriz de peligros, capacitación continua y plan de trabajo anual.";
+            } else {
+                title = "Estándares Mínimos: 60 Ítems (Cumplimiento Completo)";
+                desc = "Tu organización requiere la implementación completa de 60 estándares, auditorías periódicas, indicadores de gestión y planes integrales.";
+            }
+
+            resultTitle.textContent = title;
+            resultDesc.textContent = desc;
+            
+            const msg = encodeURIComponent(`Hola, clasifiqué mi empresa en su web. Mi resultado fue: ${title}. Deseo cotizar.`);
+            resultWpp.href = `https://wa.me/573108669393?text=${msg}`;
+
+            resultBox.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+```
