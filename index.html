@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultoría Integral Sostenible | SG-SST y Ambiental</title>
- <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -613,7 +613,7 @@
         </div>
     </section>
 
-    <!-- ESTÁNDARES MÍNIMOS (RESOLUCIÓN 0312) -->
+    <!-- ESTÁNDARES MÍNIMOS (RESOLUCIÓN 0312 DE 2019) -->
     <section class="assessment" id="estandares">
         <div class="container">
             <div class="section-header">
@@ -751,15 +751,19 @@
             let title = "";
             let desc = "";
 
+            // Lógica conforme a los Artículos 3, 9 y 16 de la Resolución 0312 de 2019
             if (emp === '1-10' && risk === 'low') {
+                // Artículo 3: 1 a 10 trabajadores y riesgo I, II o III
                 title = "Estándares Mínimos: 7 Ítems";
-                desc = "A tu empresa le aplica el cumplimiento básico de 7 estándares según la Resolución 0312. Diseñamos este esquema ágil y sin complicaciones.";
-            } else if ((emp === '1-10' && risk === 'high') || (emp === '11-50' && risk === 'low')) {
+                desc = "A tu empresa le aplica el cumplimiento básico de 7 estándares (Art. 3, Res. 0312 de 2019). Diseñamos este esquema simplificado y 100% ajustado a tu actividad.";
+            } else if (emp === '11-50' && risk === 'low') {
+                // Artículo 9: 11 a 50 trabajadores y riesgo I, II o III
                 title = "Estándares Mínimos: 21 Ítems";
-                desc = "Debes cumplir con 21 estándares fundamentales: COPASST/Vigía, matriz de peligros, capacitación continua y plan de trabajo anual.";
+                desc = "Debes cumplir con 21 estándares fundamentales (Art. 9, Res. 0312 de 2019): asignación de responsabilidades, COPASST, matriz de riesgos, capacitaciones y plan anual de trabajo.";
             } else {
-                title = "Estándares Mínimos: 60 Ítems (Cumplimiento Completo)";
-                desc = "Tu organización requiere la implementación completa de 60 estándares, auditorías periódicas, indicadores de gestión y planes integrales.";
+                // Artículo 16: Más de 50 trabajadores (cualquier riesgo) O empresas de 1 a 50 trabajadores con Riesgo IV o V
+                title = "Estándares Mínimos: 60 Ítems (Cumplimiento Integral)";
+                desc = "Por tener más de 50 trabajadores o estar clasificada en Riesgo IV o V (alto riesgo), tu organización requiere la implementación completa de los 60 estándares (Art. 16, Res. 0312 de 2019), incluyendo auditorías periódicas, indicadores de gestión y planes integrales.";
             }
 
             resultTitle.textContent = title;
