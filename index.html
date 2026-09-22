@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoría Integral Sostenible | SG-SST y Ambiental</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <title>Consultoría Integral Sostenible (COINSO S.A.S.) | SG-SST, Minería y Ambiental</title>
+    <link rel="icon" type="image/png" href="favicon.png?v=3">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --primary: #0f766e;
-            --primary-dark: #0f514c;
-            --primary-light: #ccfbf1;
-            --dark: #0f172a;
-            --text: #334155;
-            --light-bg: #f8fafc;
-            --border: #e2e8f0;
+            /* Paleta Corporativa Premium */
+            --primary: #046c4e; /* Verde Esmeralda Corporativo */
+            --primary-dark: #03543f;
+            --primary-light: #def7ec;
+            --secondary: #1e293b; /* Azul Pizarra */
+            --dark: #0f172a; /* Azul Oxford (Fondos oscuros) */
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --bg-gray: #f1f5f9;
             --white: #ffffff;
+            --border: #e2e8f0;
             --whatsapp: #25d366;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            --radius: 12px;
-            --transition: all 0.3s ease;
+            
+            /* Efectos y Geometría B2B */
+            --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+            --shadow-md: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+            --radius: 8px; /* Bordes estructurados, no circulares */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -39,15 +47,17 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text);
-            background-color: var(--white);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             color: var(--dark);
+            letter-spacing: -0.02em;
         }
 
         a {
@@ -57,50 +67,56 @@
 
         .container {
             width: 100%;
-            max-width: 1180px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* BOTONES */
+        /* BOTONES ESTRUCTURADOS */
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            padding: 12px 24px;
-            border-radius: 50px;
+            padding: 14px 28px;
+            border-radius: var(--radius);
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
             transition: var(--transition);
-            border: none;
-            text-decoration: none;
+            border: 1px solid transparent;
         }
 
         .btn-primary {
             background-color: var(--primary);
             color: var(--white) !important;
+            box-shadow: 0 4px 12px rgba(4, 108, 78, 0.2);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(4, 108, 78, 0.3);
         }
 
         .btn-secondary {
-            background-color: var(--primary-light);
-            color: var(--primary) !important;
+            background-color: var(--white);
+            color: var(--dark) !important;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-secondary:hover {
-            background-color: #bbf7d0;
+            border-color: var(--primary);
+            color: var(--primary) !important;
             transform: translateY(-2px);
         }
 
         .btn-whatsapp {
             background-color: var(--whatsapp);
             color: var(--white) !important;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
 
         .btn-whatsapp:hover {
@@ -109,26 +125,26 @@
         }
 
         .btn-pay {
-            background-color: var(--dark);
+            background-color: transparent;
             color: var(--white) !important;
-            border: 2px solid var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-pay:hover {
-            background-color: transparent;
-            color: var(--dark) !important;
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
         }
 
-        /* HEADER & NAVEGACIÓN */
+        /* HEADER CORPORATIVO */
         header {
             position: sticky;
             top: 0;
-            background: #ffffff;
-            border-bottom: 2px solid var(--border);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 12px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 16px 0;
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-wrapper {
@@ -140,256 +156,513 @@
         .logo-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             cursor: pointer;
         }
 
         .logo-svg {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
         }
 
         .logo-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--dark);
-            line-height: 1.1;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
         }
 
         .logo-text span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .nav-menu {
             display: flex;
-            gap: 12px;
+            gap: 24px;
             align-items: center;
         }
 
-        .nav-link-btn {
-            background: transparent;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--dark);
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-main);
             cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 6px;
             transition: var(--transition);
+            position: relative;
         }
 
-        .nav-link-btn:hover {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
             color: var(--primary);
-            background-color: var(--primary-light);
         }
 
-        /* HERO */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION (DARK & PREMIUM) */
         .hero {
-            padding: 70px 0 60px;
-            background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+            padding: 90px 0 100px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Patrón sutil de fondo */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 2.4rem;
-            margin-bottom: 15px;
-            line-height: 1.2;
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
         }
 
         .hero h1 span {
-            color: var(--primary);
+            color: var(--primary-light);
+            position: relative;
         }
 
         .hero p {
-            font-size: 1.05rem;
-            color: #64748b;
-            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 35px;
+            font-weight: 400;
+            max-width: 90%;
         }
 
         .hero-btns {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         .hero-card {
-            background: var(--white);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
             border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-card h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-card h3 i {
+            color: var(--primary-light);
         }
 
         .hero-card ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .hero-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .hero-card li i {
-            color: var(--primary);
-            margin-right: 10px;
+            color: var(--whatsapp);
+            margin-top: 4px;
         }
 
-        /* SECCIONES */
+        /* SECCIONES COMUNES */
         section {
-            scroll-margin-top: 90px;
+            scroll-margin-top: 80px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-subtitle {
             color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--dark);
         }
 
-        /* SERVICIOS / PORTAFOLIO */
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* SERVICIOS */
         .services {
-            padding: 80px 0;
-            background-color: var(--white);
+            padding: 100px 0;
+            background-color: var(--bg-light);
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .service-card {
-            background: var(--light-bg);
+            background: var(--white);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 30px 22px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--primary);
+            border-radius: var(--radius) var(--radius) 0 0;
+            opacity: 0;
             transition: var(--transition);
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
         }
 
         .service-icon {
-            width: 55px;
-            height: 55px;
-            background: var(--primary-light);
+            width: 60px;
+            height: 60px;
+            background: var(--bg-gray);
             color: var(--primary);
-            border-radius: 12px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: var(--white);
         }
 
         .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
         }
 
         .service-card ul {
             list-style: none;
-            font-size: 0.9rem;
-            color: #64748b;
+            font-size: 0.95rem;
+            color: var(--text-muted);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .service-card li {
             position: relative;
-            padding-left: 18px;
+            padding-left: 20px;
         }
 
         .service-card li::before {
-            content: '✓';
+            content: '•';
             position: absolute;
             left: 0;
             color: var(--primary);
             font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
         }
 
-        /* CLASIFICADOR ESTÁNDARES MÍNIMOS */
-        .assessment {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+        /* EXPERIENCIA */
+        .experience {
+            padding: 100px 0;
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .experience-card {
+            background: var(--bg-gray);
+            border-radius: var(--radius);
+            padding: 40px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background-color: var(--primary);
             color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
         }
 
-        .assessment h2, .assessment p {
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .experience-card p {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .experience-card li i {
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* DOTACIÓN Y EPP */
+        .epp-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border);
+        }
+
+        .epp-banner {
+            background: var(--dark);
+            border-radius: var(--radius);
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .epp-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; width: 40%;
+            background: linear-gradient(90deg, transparent, rgba(4, 108, 78, 0.2));
+        }
+
+        .epp-banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 60%;
+        }
+
+        .epp-banner-content h3 {
+            color: var(--white);
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+        }
+
+        .epp-banner-content p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+        }
+
+        .epp-banner-action {
+            position: relative;
+            z-index: 2;
+        }
+
+        .epp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .epp-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .epp-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .epp-icon-box {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .epp-card:hover .epp-icon-box {
+            color: var(--primary);
+        }
+
+        .epp-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .epp-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* CLASIFICADOR ESTÁNDARES */
+        .assessment {
+            padding: 100px 0;
+            background: var(--dark);
+            color: var(--white);
+            border-top: 4px solid var(--primary);
+        }
+
+        .assessment .section-title, .assessment p {
             color: var(--white);
         }
 
         .assessment-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: var(--secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius);
-            padding: 35px;
-            max-width: 750px;
+            padding: 50px;
+            max-width: 800px;
             margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
             font-size: 0.95rem;
+            color: #e2e8f0;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            background-color: var(--white);
-            color: var(--dark);
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(15, 23, 42, 0.5);
+            color: var(--white);
             font-size: 1rem;
             font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(4, 108, 78, 0.3);
+        }
+
+        .form-control option {
+            background-color: var(--secondary);
+            color: var(--white);
         }
 
         .result-box {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(15, 118, 110, 0.25);
+            margin-top: 30px;
+            padding: 24px;
+            border-radius: var(--radius);
+            background-color: rgba(4, 108, 78, 0.15);
             border: 1px solid var(--primary);
             display: none;
         }
 
         .result-box.active {
             display: block;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
@@ -399,129 +672,151 @@
 
         /* POR QUÉ ELEGIRNOS */
         .why-us {
-            padding: 80px 0;
-            background: var(--light-bg);
+            padding: 100px 0;
+            background: var(--white);
         }
 
         .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .why-card {
-            background: var(--white);
             padding: 30px;
             border-radius: var(--radius);
             border: 1px solid var(--border);
             display: flex;
-            gap: 20px;
+            gap: 24px;
+            background: var(--bg-light);
+            transition: var(--transition);
+        }
+        
+        .why-card:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
         }
 
         .why-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary);
             flex-shrink: 0;
         }
 
         .why-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .why-text p {
-            font-size: 0.9rem;
-            color: #64748b;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
         /* CONTACTO */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: var(--bg-gray);
             text-align: center;
         }
 
         .contact-box {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 45px 25px;
-            max-width: 850px;
+            padding: 60px 40px;
+            max-width: 800px;
             margin: 0 auto;
+            box-shadow: var(--shadow-lg);
         }
 
         .contact-box h2 {
-            color: var(--white);
-            font-size: 2rem;
-            margin-bottom: 12px;
+            font-size: 2.25rem;
+            margin-bottom: 16px;
         }
 
         .contact-details {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin: 25px 0 35px;
-            font-size: 1.1rem;
+            gap: 40px;
+            margin: 35px 0 45px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.15rem;
+            color: var(--dark);
+            font-weight: 600;
         }
 
-        /* FOOTER & BOTÓN WHATSAPP */
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* FOOTER */
         footer {
             background: var(--dark);
             color: #94a3b8;
             text-align: center;
-            padding: 25px 0;
-            font-size: 0.85rem;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            width: 64px;
+            height: 64px;
             background-color: var(--whatsapp);
             color: var(--white) !important;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            font-size: 34px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             z-index: 1000;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .epp-banner { flex-direction: column; text-align: center; padding: 30px; }
+            .epp-banner-content { max-width: 100%; margin-bottom: 24px; }
         }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 1.8rem; }
-            .contact-details { flex-direction: column; gap: 15px; }
+            .contact-details { flex-direction: column; gap: 20px; align-items: center; }
+            .assessment-box { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVEGACIÓN -->
+    <!-- HEADER -->
     <header>
         <div class="container nav-wrapper">
             <div class="logo-box" onclick="scrollToSection('inicio')">
                 <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" stroke="#000000" stroke-width="6" fill="none"/>
-                    <polygon points="50,14 82,32 82,68 50,86 18,68 18,32" stroke="#000000" stroke-width="3" fill="none"/>
-                    <circle cx="50" cy="40" r="12" fill="#71717a"/>
-                    <path d="M 36 38 C 36 28, 64 28, 64 38 Z" fill="#71717a"/>
-                    <rect x="33" y="37" width="34" height="4" rx="2" fill="#71717a"/>
-                    <path d="M 32 68 C 32 54, 68 54, 68 68 Z" fill="#71717a"/>
+                    <polygon points="50,5 90,28 90,72 50,95 10,72 10,28" stroke="#0f172a" stroke-width="6" fill="none"/>
+                    <polygon points="50,14 82,32 82,68 50,86 18,68 18,32" stroke="#046c4e" stroke-width="3" fill="none"/>
+                    <circle cx="50" cy="40" r="10" fill="#0f172a"/>
+                    <path d="M 36 38 C 36 28, 64 28, 64 38 Z" fill="#0f172a"/>
+                    <rect x="33" y="37" width="34" height="4" rx="2" fill="#0f172a"/>
+                    <path d="M 32 68 C 32 54, 68 54, 68 68 Z" fill="#0f172a"/>
                 </svg>
                 <div class="logo-text">
                     Consultoría
@@ -529,97 +824,94 @@
                 </div>
             </div>
             <nav class="nav-menu">
-                <button type="button" class="nav-link-btn" onclick="scrollToSection('servicios')">Servicios</button>
-                <button type="button" class="nav-link-btn" onclick="scrollToSection('estandares')">Estándares Mínimos</button>
-                <button type="button" class="nav-link-btn" onclick="scrollToSection('por-que-nosotros')">¿Por qué nosotros?</button>
-                <button type="button" class="nav-link-btn" onclick="scrollToSection('contacto')">Contacto</button>
-                <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización" target="_top" class="btn btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> +57 310 8669393
-                </a>
-                <a href="https://checkout.bold.co/payment/LNK_CG20EVQQJ4" target="_blank" class="btn btn-pay" style="padding: 8px 15px;">
-                    <i class="fa-solid fa-credit-card"></i> Pagar
+                <a class="nav-link" onclick="scrollToSection('servicios')">Servicios</a>
+                <a class="nav-link" onclick="scrollToSection('experiencia')">Experiencia</a>
+                <a class="nav-link" onclick="scrollToSection('dotacion-epp')">EPP & Dotación</a>
+                <a class="nav-link" onclick="scrollToSection('estandares')">Estándares</a>
+                <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización" target="_top" class="btn btn-primary" style="padding: 10px 20px;">
+                    Contactar
                 </a>
             </nav>
         </div>
     </header>
 
-    <!-- INICIO / HERO -->
+    <!-- HERO -->
     <section class="hero" id="inicio">
         <div class="container hero-grid">
             <div>
-                <span class="section-subtitle">Asesoría Profesional y Cumplimiento Legal</span>
-                <h1>Consultoría Integral en <span>SG-SST</span> y <span>Gestión Ambiental</span></h1>
-                <p>Protegemos a tu equipo de trabajo, aseguramos la sostenibilidad de tus procesos y garantizamos el cumplimiento normativo para evitar sanciones y multas.</p>
+                <h1>Gestión Técnica en <span>SST, Minería</span> y Cumplimiento Ambiental</h1>
+                <p>Consultoría especializada B2B. Protegemos el capital humano de su empresa, garantizamos el suministro de dotación certificada y blindamos sus operaciones ante entidades regulatorias.</p>
                 <div class="hero-btns">
                     <button type="button" class="btn btn-primary" onclick="scrollToSection('estandares')">
-                        <i class="fa-solid fa-calculator"></i> Clasificar mi Empresa
+                        Evaluar Estándares Mínimos
                     </button>
-                    <a href="https://wa.me/573108669393?text=Hola,%20deseo%20asesoría" target="_top" class="btn btn-secondary">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="https://checkout.bold.co/payment/LNK_CG20EVQQJ4" target="_blank" class="btn btn-pay">
-                        <i class="fa-solid fa-credit-card"></i> Pago Seguro Bold
-                    </a>
+                    <button type="button" class="btn btn-pay" onclick="window.open('https://checkout.bold.co/payment/LNK_CG20EVQQJ4', '_blank')">
+                        <i class="fa-solid fa-building-columns"></i> Portal de Pagos
+                    </button>
                 </div>
             </div>
             <div class="hero-card">
-                <h3 style="margin-bottom:15px; font-size:1.15rem;"><i class="fa-solid fa-shield-check" style="color:var(--primary);"></i> Cumplimiento Normativo</h3>
+                <h3><i class="fa-solid fa-shield-halved"></i> Respaldo Institucional</h3>
                 <ul>
-                    <li><i class="fa-solid fa-check"></i> Licencia vigente en Seguridad y Salud en el Trabajo.</li>
-                    <li><i class="fa-solid fa-check"></i> Implementación según la Resolución 0312 de 2019.</li>
-                    <li><i class="fa-solid fa-check"></i> Matrices de riesgos GTC 45 y planes de emergencia.</li>
-                    <li><i class="fa-solid fa-check"></i> Planes de Gestión Integral de Residuos (PGIR).</li>
+                    <li><i class="fa-solid fa-check"></i> <span>Asesoría técnica con Licencia Vigente en SST.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span>Defensa jurídica ante MinTrabajo, ANM y ARL.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span>Diseño e implementación bajo Res. 0312 de 2019.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span>Suministro de EPP y Dotación (Norma ANSI/OSHA).</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- PORTAFOLIO Y SERVICIOS -->
+    <!-- SERVICIOS -->
     <section class="services" id="servicios">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Portafolio Profesional</span>
-                <h2 class="section-title">Nuestros Servicios Especializados</h2>
-                <p>Soluciones técnicas y legales adaptadas exactamente a las necesidades de tu empresa</p>
+                <span class="section-subtitle">Portafolio Corporativo</span>
+                <h2 class="section-title">Servicios Especializados</h2>
+                <p>Estructuración técnica y legal adaptada a las exigencias operativas y matriz de riesgos de su sector económico.</p>
             </div>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-hard-hat"></i></div>
-                    <h3>Diseño e Implementación SG-SST</h3>
+                    <div class="service-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <h3>Implementación SG-SST</h3>
                     <ul>
-                        <li>Diagnóstico inicial y evaluación de estándares.</li>
-                        <li>Matriz de riesgos e identificación de peligros (GTC 45).</li>
-                        <li>Políticas de SST y plan anual de trabajo.</li>
+                        <li>Auditoría inicial y evaluación (Res. 0312).</li>
+                        <li>Matriz de riesgos GTC 45 y Reglamento Interno.</li>
+                        <li>Elaboración de Procedimientos (PTS) y ATS.</li>
+                        <li>Presupuesto y Plan Anual de Trabajo.</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Capacitación y Comités</h3>
+                    <div class="service-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <h3>Seguridad en Alto Riesgo</h3>
                     <ul>
-                        <li>Conformación y entrenamiento de COPASST / Vigía.</li>
-                        <li>Comité de Convivencia Laboral.</li>
-                        <li>Formación de brigadas de emergencia y simulacros.</li>
+                        <li>Estabilidad de taludes y minería a cielo abierto.</li>
+                        <li>Protocolos de izaje, cargue y transporte pesado.</li>
+                        <li>Trabajo seguro en alturas (Res. 4272/2021).</li>
+                        <li>Control de higiene industrial (sílice, carbón, ruido).</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h3>Auditorías y Seguimiento Legal</h3>
+                    <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>Representación Regulatoria</h3>
                     <ul>
-                        <li>Auditorías internas anuales de cumplimiento.</li>
-                        <li>Investigación técnica de accidentes de trabajo.</li>
-                        <li>Acompañamiento en visitas de MinTrabajo y ARL.</li>
+                        <li>Atención de visitas de MinTrabajo y ANM.</li>
+                        <li>Acompañamiento en auditorías de ARL.</li>
+                        <li>Investigación de accidentes severos y mortales.</li>
+                        <li>Cierre de no conformidades y planes de mejora.</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
-                    <h3>Gestión y Cumplimiento Ambiental</h3>
+                    <h3>Gestión Ambiental Operativa</h3>
                     <ul>
                         <li>Plan de Gestión Integral de Residuos (PGIR).</li>
-                        <li>Trámites, permisos y licencias ambientales.</li>
+                        <li>Trámites ante Autoridades Ambientales (CAS, CDMB).</li>
+                        <li>Monitoreo y control de vertimientos.</li>
                         <li>Programas de uso eficiente de agua y energía.</li>
                     </ul>
                 </div>
@@ -627,81 +919,173 @@
         </div>
     </section>
 
-    <!-- ESTÁNDARES MÍNIMOS (RESOLUCIÓN 0312 DE 2019) -->
+    <!-- EXPERIENCIA -->
+    <section class="experience" id="experiencia">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Capacidad Operativa</span>
+                <h2 class="section-title">Experiencia Técnica en Terreno</h2>
+                <p>Intervención directa en entornos de alto riesgo y respaldo comprobado en procesos de fiscalización gubernamental.</p>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <span class="experience-badge">FAENA MINERA & INDUSTRIA</span>
+                    <h3>Control Operacional a Cielo Abierto</h3>
+                    <p>Lideramos la prevención técnica en procesos de explotación (carbón, agregados, arcillas), garantizando la continuidad del negocio bajo parámetros de seguridad estrictos.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Geotecnia y Taludes:</strong> Monitoreo de frentes de explotación y control de estabilidad.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Interacción Maquinaria:</strong> Protocolos de tránsito pesado, cargadores y volquetas.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Higiene y Vigilancia:</strong> Mitigación de material particulado respirable y vibraciones.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Respuesta a Emergencias:</strong> Brigadas especializadas para rescate y conatos de incendio.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <span class="experience-badge">DEFENSA INSTITUCIONAL</span>
+                    <h3>Blindaje en Procesos de Inspección</h3>
+                    <p>Actuamos como representantes técnicos de su empresa ante entidades de vigilancia y control, evitando suspensiones de obra, sellamientos o sanciones económicas.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Ministerio del Trabajo:</strong> Sustentación técnica ante investigaciones por accidentes laborales.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Agencia Nacional de Minería (ANM):</strong> Defensa del Reglamento de Seguridad en Labores Mineras.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Administradoras de Riesgos (ARL):</strong> Levantamiento de matrices e indicadores de gestión.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> <strong>Corporaciones Autónomas:</strong> Verificación in situ de licencias y planes de manejo ambiental.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOTACIÓN Y EPP -->
+    <section class="epp-section" id="dotacion-epp">
+        <div class="container">
+            <div class="epp-banner">
+                <div class="epp-banner-content">
+                    <h3>Suministro Corporativo de Dotación y EPP</h3>
+                    <p>Equipamiento industrial certificado (ANSI, OSHA, ICONTEC). Centralice sus compras y asegure el cumplimiento normativo de su matriz de elementos de protección.</p>
+                </div>
+                <div class="epp-banner-action">
+                    <a href="https://wa.me/573108669393?text=Hola,%20deseo%20solicitar%20una%20cotización%20corporativa%20de%20EPP%20y%20Dotación" target="_top" class="btn btn-whatsapp" style="padding: 16px 32px;">
+                        <i class="fa-solid fa-box-open"></i> Solicitar Cotización General
+                    </a>
+                </div>
+            </div>
+
+            <div class="epp-grid">
+                <div class="epp-card">
+                    <div>
+                        <div class="epp-icon-box"><i class="fa-solid fa-shoe-prints"></i></div>
+                        <h4>Calzado Industrial</h4>
+                        <p>Botas de seguridad dieléctricas, puntera en composite/acero, suelas antideslizantes resistentes a hidrocarburos y botas pantaneras inyectadas.</p>
+                    </div>
+                    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización%20de%20Calzado%20de%20Seguridad" target="_top" class="btn btn-secondary">Cotizar Línea Calzado</a>
+                </div>
+
+                <div class="epp-card">
+                    <div>
+                        <div class="epp-icon-box"><i class="fa-solid fa-shirt"></i></div>
+                        <h4>Dotación Operativa</h4>
+                        <p>Overoles enterizos, conjuntos en dril vulcano, dotación con cintas reflectivas 3M, prendas ignífugas y chalecos institucionales tipo ingeniero.</p>
+                    </div>
+                    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización%20de%20Dotación%20Industrial" target="_top" class="btn btn-secondary">Cotizar Línea Textil</a>
+                </div>
+
+                <div class="epp-card">
+                    <div>
+                        <div class="epp-icon-box"><i class="fa-solid fa-mask-ventilator"></i></div>
+                        <h4>Protección Facial y Respiratoria</h4>
+                        <p>Respiradores elastoméricos, filtros P100 para material particulado, cartuchos para vapores, monogafas y lentes de seguridad con filtro UV/antiempañante.</p>
+                    </div>
+                    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización%20de%20Protección%20Respiratoria%20y%20Visual" target="_top" class="btn btn-secondary">Cotizar Línea Facial</a>
+                </div>
+
+                <div class="epp-card">
+                    <div>
+                        <div class="epp-icon-box"><i class="fa-solid fa-person-falling"></i></div>
+                        <h4>Trabajo en Alturas</h4>
+                        <p>Cascos dieléctricos tipo I/II, arneses de cuerpo entero (ANSI Z359), eslingas con absorbedor de choque, líneas de vida y conectores de anclaje.</p>
+                    </div>
+                    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20cotización%20de%20Equipos%20para%20Alturas" target="_top" class="btn btn-secondary">Cotizar Línea Alturas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVALUACIÓN (ESTÁNDARES) -->
     <section class="assessment" id="estandares">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle" style="color:#ccfbf1;">Herramienta Interactiva</span>
+                <span class="section-subtitle" style="color: var(--primary-light);">Auditoría Normativa</span>
                 <h2 class="section-title">Clasificación de Estándares Mínimos</h2>
-                <p>Selecciona el tamaño de tu empresa y el nivel de riesgo para conocer qué estándares te exige la norma:</p>
+                <p>Determine el nivel de exigencia legal de su organización según la Resolución 0312 de 2019.</p>
             </div>
 
             <div class="assessment-box">
                 <form id="sstForm">
                     <div class="form-group">
-                        <label for="employees"><i class="fa-solid fa-users"></i> Número de Trabajadores:</label>
+                        <label for="employees">Planta de Personal:</label>
                         <select id="employees" class="form-control">
-                            <option value="1-10">1 a 10 trabajadores</option>
-                            <option value="11-50">11 a 50 trabajadores</option>
-                            <option value="50+">Más de 50 trabajadores</option>
+                            <option value="1-10">Microempresa (1 a 10 empleados)</option>
+                            <option value="11-50">Pequeña Empresa (11 a 50 empleados)</option>
+                            <option value="50+">Mediana/Gran Empresa (Más de 50 empleados)</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="risk"><i class="fa-solid fa-triangle-exclamation"></i> Clase de Riesgo (ARL):</label>
+                        <label for="risk">Clasificación de Riesgo ARL:</label>
                         <select id="risk" class="form-control">
-                            <option value="low">Riesgo I, II o III (Bajo / Medio)</option>
-                            <option value="high">Riesgo IV o V (Alto - Obras, Minas, Industria, etc.)</option>
+                            <option value="low">Riesgo I, II o III (Administrativo, Comercial, Manufactura Leve)</option>
+                            <option value="high">Riesgo IV o V (Minería, Construcción, Metalmecánica, Alta Peligrosidad)</option>
                         </select>
                     </div>
 
-                    <button type="button" onclick="evaluateSST()" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                        <i class="fa-solid fa-check"></i> Calcular Clasificación
+                    <button type="button" onclick="evaluateSST()" class="btn btn-primary" style="width: 100%; font-size: 1.05rem;">
+                        Ejecutar Diagnóstico
                     </button>
                 </form>
 
                 <div id="resultBox" class="result-box">
-                    <h4 id="resultTitle" style="color:var(--white); margin-bottom:8px;"></h4>
-                    <p id="resultDesc" style="font-size:0.95rem; margin-bottom:15px;"></p>
-                    <a id="resultWpp" href="#" target="_top" class="btn btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i> Cotizar este Estándar por WhatsApp
+                    <h4 id="resultTitle" style="color: var(--white); font-size: 1.25rem; margin-bottom: 12px;"></h4>
+                    <p id="resultDesc" style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 24px; line-height: 1.6;"></p>
+                    <a id="resultWpp" href="#" target="_top" class="btn btn-whatsapp" style="width: 100%;">
+                        Cotizar Implementación de este Estándar
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ¿POR QUÉ NOSOTROS? -->
+    <!-- POR QUÉ ELEGIRNOS -->
     <section class="why-us" id="por-que-nosotros">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Garantía de Confianza</span>
-                <h2 class="section-title">¿Por qué elegirnos?</h2>
-                <p>Tu aliado estratégico en cumplimiento técnico y tranquilidad legal</p>
+                <span class="section-subtitle">Ventaja Competitiva</span>
+                <h2 class="section-title">¿Por qué confiar en nosotros?</h2>
+                <p>Garantizamos el equilibrio perfecto entre viabilidad operativa y rigor normativo.</p>
             </div>
 
             <div class="why-grid">
                 <div class="why-card">
-                    <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="why-icon"><i class="fa-solid fa-file-shield"></i></div>
                     <div class="why-text">
-                        <h4>Cumplimiento sin Sanciones</h4>
-                        <p>Evita requerimientos y multas económicas manteniendo al día las matrices, registros y capacitaciones requeridas por la ley.</p>
+                        <h4>Gestión Cero Sanciones</h4>
+                        <p>Estructuración documental rigurosa (matrices, perfiles, planes) diseñada específicamente para superar auditorías sin hallazgos ni penalizaciones.</p>
                     </div>
                 </div>
 
                 <div class="why-card">
-                    <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div class="why-icon"><i class="fa-solid fa-pen-ruler"></i></div>
                     <div class="why-text">
-                        <h4>Soluciones a la Medida</h4>
-                        <p>Documentación y planes ajustados de forma real a la actividad de tu empresa, sin formatos genéricos ni sobrecostos.</p>
+                        <h4>Ingeniería a la Medida</h4>
+                        <p>No utilizamos plantillas genéricas. Cada procedimiento de trabajo seguro (PTS) se redacta observando la realidad operativa de sus trabajadores.</p>
                     </div>
                 </div>
 
                 <div class="why-card">
-                    <div class="why-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+                    <div class="why-icon"><i class="fa-solid fa-handshake-angle"></i></div>
                     <div class="why-text">
-                        <h4>Profesionales con Licencia</h4>
-                        <p>Acompañamiento realizado por personal técnico calificado con Licencia vigente en Seguridad y Salud en el Trabajo.</p>
+                        <h4>Proveedor Integral (All-in-One)</h4>
+                        <p>Simplifique su cadena de suministro centralizando el diseño del SG-SST, la asesoría jurídica y la compra de EPP/Dotación en un solo aliado estratégico.</p>
                     </div>
                 </div>
             </div>
@@ -712,26 +1096,26 @@
     <section class="contact" id="contacto">
         <div class="container">
             <div class="contact-box">
-                <h2>Comunícate con Nosotros</h2>
-                <p>Recibe asesoría personalizada o solicita la cotización de tu sistema hoy mismo.</p>
+                <h2>Inicie su Proceso de Cumplimiento</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;">Agende una reunión técnica, solicite revisión documental o pida una cotización formal para su empresa.</p>
                 
                 <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <a href="https://wa.me/573108669393" target="_top" style="color:#fff; font-weight:700;">+57 310 8669393</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:integralsostenibleconsultoria@gmail.com" target="_top" style="color:#fff; font-weight:700;">integralsostenibleconsultoria@gmail.com</a>
-                    </div>
+                    <a href="https://wa.me/573108669393" target="_top" class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i> +57 310 8669393
+                    </a>
+                    <a href="mailto:integralsostenibleconsultoria@gmail.com" target="_top" class="contact-item">
+                        <i class="fa-solid fa-envelope"></i> integralsostenibleconsultoria@gmail.com
+                    </a>
                 </div>
 
-                <a href="https://wa.me/573108669393?text=Hola,%20deseo%20cotizar%20servicios%20de%20SG-SST%20y%20Ambiental" target="_top" class="btn btn-whatsapp" style="font-size:1.05rem; padding: 14px 32px; margin-bottom: 15px;">
-                    <i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp Directo
-                </a>
-                <a href="https://checkout.bold.co/payment/LNK_CG20EVQQJ4" target="_blank" class="btn btn-pay" style="font-size:1.05rem; padding: 14px 32px; display: block; max-width: 350px; margin: 0 auto; background-color: #fff; color: var(--dark) !important;">
-                    <i class="fa-solid fa-lock"></i> Realizar Pago con Bold
-                </a>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20contacto%20comercial" target="_top" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.05rem;">
+                        Contactar Asesor (WhatsApp)
+                    </a>
+                    <a href="https://checkout.bold.co/payment/LNK_CG20EVQQJ4" target="_blank" class="btn btn-secondary" style="padding: 16px 32px; font-size: 1.05rem;">
+                        <i class="fa-solid fa-credit-card"></i> Portal de Pago Seguro
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -739,16 +1123,17 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; Consultoría Integral Sostenible | Bucaramanga, Santander</p>
+            <p>&copy; 2026 Consultoría Integral Sostenible (COINSO S.A.S.) | Bucaramanga, Santander.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; color: #64748b;">Todos los derechos reservados. Servicios profesionales en Seguridad y Salud en el Trabajo.</p>
         </div>
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/573108669393?text=Hola,%20solicito%20asesoría" class="whatsapp-float" target="_top" title="Escríbenos por WhatsApp">
+    <a href="https://wa.me/573108669393?text=Hola,%20requiero%20asesoría%20técnica%20SST" class="whatsapp-float" target="_top" title="Atención al Cliente">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- SCRIPT DE NAVEGACIÓN Y EVALUACIÓN -->
+    <!-- SCRIPT DE INTERACCIÓN -->
     <script>
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
@@ -768,22 +1153,21 @@
             let title = "";
             let desc = "";
 
-            // Lógica conforme a los Artículos 3, 9 y 16 de la Resolución 0312 de 2019
             if (emp === '1-10' && risk === 'low') {
-                title = "Estándares Mínimos: 7 Ítems";
-                desc = "A tu empresa le aplica el cumplimiento básico de 7 estándares (Art. 3, Res. 0312 de 2019). Diseñamos este esquema simplificado y 100% ajustado a tu actividad.";
+                title = "Estándares Mínimos Requeridos: 7 Ítems";
+                desc = "Por clasificación normativa (Art. 3, Res. 0312/2019), su organización requiere el diseño básico de 7 estándares. Estructuramos un sistema altamente funcional, sin sobrecargar administrativamente su empresa, garantizando cumplimiento total.";
             } else if (emp === '11-50' && risk === 'low') {
-                title = "Estándares Mínimos: 21 Ítems";
-                desc = "Debes cumplir con 21 estándares fundamentales (Art. 9, Res. 0312 de 2019): asignación de responsabilidades, COPASST, matriz de riesgos, capacitaciones y plan anual de trabajo.";
+                title = "Estándares Mínimos Requeridos: 21 Ítems";
+                desc = "Su empresa debe cumplir con 21 parámetros legales (Art. 9, Res. 0312/2019). Esto exige el diseño de políticas, asignación formal de responsabilidades, conformación de COPASST/Convivencia, levantamiento de Matriz de Riesgos y capacitaciones programadas.";
             } else {
-                title = "Estándares Mínimos: 60 Ítems (Cumplimiento Integral)";
-                desc = "Por tener más de 50 trabajadores o estar clasificada en Riesgo IV o V (alto riesgo), tu organización requiere la implementación completa de los 60 estándares (Art. 16, Res. 0312 de 2019), incluyendo auditorías periódicas, indicadores de gestión y planes integrales.";
+                title = "Estándares Mínimos Requeridos: 60 Ítems (Fase Integral)";
+                desc = "Atención: Por el tamaño de su planta o por pertenecer al nivel de Alto Riesgo (IV o V, como minería, construcción o industria pesada), la ley exige el diseño e implementación absoluta de los 60 estándares (Art. 16, Res. 0312/2019). Requiere gestión técnica especializada urgente.";
             }
 
             resultTitle.textContent = title;
-            resultDesc.textContent = desc;
+            resultDesc.innerHTML = desc;
             
-            const msg = encodeURIComponent(`Hola, clasifiqué mi empresa en su web. Mi resultado fue: ${title}. Deseo cotizar.`);
+            const msg = encodeURIComponent(`Hola, ejecuté el diagnóstico SST en la web. El resultado arroja que requiero: ${title}. Solicito propuesta comercial.`);
             resultWpp.href = `https://wa.me/573108669393?text=${msg}`;
 
             resultBox.classList.add('active');
